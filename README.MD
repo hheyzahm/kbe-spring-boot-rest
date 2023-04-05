@@ -36,3 +36,15 @@ Command for tun interactively
 
 `docker run -it -p 8080:8080 kbe-rest`
 
+###### Note: when using pom plugin for image in docker if ${project.artifactId} is used in name convention then name in ${project.artifactId} should be in small letters.
+
+KBE - Pushing to Docker Hub
+
+command to push on docker
+
+`mvn clean package docker:build docker:push`
+
+above command is used to clean , then build new image, run some tests and push it on docker
+
+
+
