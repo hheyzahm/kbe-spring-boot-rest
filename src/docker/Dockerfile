@@ -1,14 +1,12 @@
 FROM openjdk:19-jdk-slim as builder
 WORKDIR application
-ADD target/kbe-spring-boot-rest-0.0.1-SNAPSHOT.jar ./
+
+ADD maven/kbe-spring-boot-rest-0.0.1-SNAPSHOT.jar ./
 RUN java -Djarmode=layertools -jar kbe-spring-boot-rest-0.0.1-SNAPSHOT.jar extract
 
-#ADD maven/KBE-SpingBootRest-0.0.1-SNAPSHOT.jar ./
-#RUN java -Djarmode=layertools -jar KBE-SpingBootRest-0.0.1-SNAPSHOT.jar extract
-
 # below is initail and worked one from running on commmad terminal
-#ADD target/KBE-SpingBootRest-0.0.1-SNAPSHOT.jar ./
-#RUN java -Djarmode=layertools -jar KBE-SpingBootRest-0.0.1-SNAPSHOT.jar extract
+#ADD target/kbe-spring-boot-rest-0.0.1-SNAPSHOT.jar ./
+#RUN java -Djarmode=layertools -jar kbe-spring-boot-rest-0.0.1-SNAPSHOT.jar extract
 
 
 FROM openjdk:19-jdk-slim

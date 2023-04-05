@@ -143,7 +143,54 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.42.0</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <images>
+                        <image>
+                            <name>springboot_application/${project.artifactId}</name>
+                            <build>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <dockerFile>Dockerfile</dockerFile>
+                                <tags>
+                                    <tag>latest</tag>
+                                    <tag>${project.version}</tag>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+            <!--  <plugin>
+                  <groupId>io.fabric8</groupId>
+                  <artifactId>docker-maven-plugin</artifactId>
+                  <version>0.42.0</version>
+                  <configuration>
+                      <verbose>true</verbose>
+                      <images>
+                          <image>
+                              <name>spring-application</name>
+                              <build>
+                                  &lt;!&ndash;<dockerFileDir>{project.basedir}/src/main/dockerBaseLayer/</dockerFileDir>
+                                  &ndash;&gt;
+                                  &lt;!&ndash;<assembly>
+                                      <descriptionRef>artifact</descriptionRef>
+                                  </assembly>&ndash;&gt;
+                                  <dockerFile>Dockerfile</dockerFile>
+                                  <tags>
+                                      <tag>latest</tag>
+                                      <tag>${project.version}</tag>
+                                  </tags>
+                              </build>
+                          </image>
+                      </images>
+                  </configuration>
+              </plugin>-->
         </plugins>
     </build>
     <repositories>
